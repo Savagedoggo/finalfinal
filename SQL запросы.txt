@@ -1,6 +1,6 @@
-SELECT c.login, COUNT(o."inDelivery")
-FROM "Couriers" as c
-INNER JOIN "Orders" as o ON c.id = o."courierId"
+SELECT c.login, COUNT(*)
+FROM "Orders" as o
+INNER JOIN "Couriers" as c ON o."courierId" = c.id
 WHERE o."inDelivery" = 't'
 GROUP BY c.login;
 
